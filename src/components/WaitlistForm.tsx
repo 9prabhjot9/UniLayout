@@ -34,44 +34,42 @@ export default function WaitlistForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex w-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur md:flex-row md:p-5"
-    >
-      <label className="sr-only" htmlFor="waitlist-email">
-        Email address
-      </label>
-      <input
-        id="waitlist-email"
-        type="email"
-        placeholder="you@email.com"
-        value={email}
-        onChange={(event) => {
-          setEmail(event.target.value);
-          if (status !== 'idle') {
-            setStatus('idle');
-            setMessage('');
-          }
-        }}
-        className="h-14 flex-1 rounded-xl border border-white/10 bg-white/10 px-4 text-base text-white placeholder:text-white/60 outline-none transition focus:border-white/40"
-      />
-      <button
-        type="submit"
-        disabled={status === 'loading'}
-        className="h-14 rounded-xl bg-white px-8 text-base font-semibold text-slate-900 transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60"
+    <div className="w-full space-y-3">
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur md:flex-row md:p-5"
       >
-        {status === 'loading' ? 'Joining…' : 'Join the waitlist'}
-      </button>
-      {message && (
-        <p
-          className={`text-sm ${
-            status === 'error' ? 'text-red-200' : 'text-emerald-200'
-          } md:col-span-2`}
+        <label className="sr-only" htmlFor="waitlist-email">
+          Email address
+        </label>
+        <input
+          id="waitlist-email"
+          type="email"
+          placeholder="you@email.com"
+          value={email}
+          onChange={(event) => {
+            setEmail(event.target.value);
+            if (status !== 'idle') {
+              setStatus('idle');
+              setMessage('');
+            }
+          }}
+          className="h-14 flex-1 rounded-xl border border-white/10 bg-white/10 px-4 text-base text-white placeholder:text-white/60 outline-none transition focus:border-white/40"
+        />
+        <button
+          type="submit"
+          disabled={status === 'loading'}
+          className="h-14 rounded-xl bg-white px-8 text-base font-semibold text-slate-900 disabled:cursor-not-allowed disabled:opacity-60"
         >
+          {status === 'loading' ? 'Joining…' : 'Join the waitlist'}
+        </button>
+      </form>
+      {message && (
+        <p className={`text-sm ${status === 'error' ? 'text-red-200' : 'text-emerald-200'}`}>
           {message}
         </p>
       )}
-    </form>
+    </div>
   );
 }
 
