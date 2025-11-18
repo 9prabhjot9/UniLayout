@@ -1,11 +1,21 @@
 import Countdown from '@/components/Countdown';
 import WaitlistForm from '@/components/WaitlistForm';
 import Beams from '@/components/Beams';
+import { Github } from 'lucide-react';
 
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-gradient-to-b from-sky-500/20 via-cyan-400/10 to-transparent blur-3xl" />
+      <a
+        href="https://github.com/9prabhjot9"
+        target="_blank"
+        rel="noreferrer"
+        className="absolute right-6 top-6 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition hover:border-white/40 hover:bg-white/10"
+        aria-label="Prabhjot Singh on GitHub"
+      >
+        <Github className="h-5 w-5" />
+      </a>
       <div className="absolute inset-0 opacity-60">
         <Beams
           beamHeight={18}
@@ -26,7 +36,8 @@ export default function Home() {
             UniLayout keeps every language looking intentional
           </h1>
           <p className="text-lg text-white/70">
-          An AI layout assistant that repairs overflow, balances multilingual text, and keeps your design flawless across every language.
+            An AI layout assistant that repairs overflow, balances multilingual text, and keeps your design flawless
+            across every language.
           </p>
         </div>
 
